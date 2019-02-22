@@ -64,7 +64,7 @@ def newfig():
     return ax
 
 
-def savefig(viz, name, gallery=GALLERY):
+def savefig(viz, name, gallery=GALLERY, **kwargs):
     """
     Saves the figure to the gallery directory
     """
@@ -76,7 +76,7 @@ def savefig(viz, name, gallery=GALLERY):
         raise ValueError("name should not specify extension")
 
     outpath = path.join(gallery, name+".png")
-    viz.poof(outpath=outpath)
+    viz.poof(outpath=outpath, **kwargs)
     print("created {}".format(outpath))
 
 
@@ -211,14 +211,13 @@ def confusion(dataset):
     elif dataset == "digits":
         data = load_digits()
     else:
-        raise ValueError("uknown dataset")
+        raise ValueError("unknown dataset")
 
     X_train, X_test, y_train, y_test = tts(data.data, data.target, test_size =0.2)
     oz = ConfusionMatrix(LogisticRegression(), ax=newfig())
     oz.fit(X_train, y_train)
     oz.score(X_test, y_test)
-    savefig(oz, "confusion_matrix_{}".format(dataset))
-
+    savefig(oz, "confusion_matrix_{}".format(dataset), bbox_inches="tight")
 
 def rocauc(dataset):
     if dataset == "binary":
@@ -435,7 +434,7 @@ def postag():
     ]
     oz = PosTagVisualizer(ax=newfig())
     oz.fit(tagged_stanzas)
-    savefig(oz, "postag")
+    savefig(oz, "postag", bbox_inches="tight")
 
 ##########################################################################
 ## Target Visualizations
