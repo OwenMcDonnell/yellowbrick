@@ -54,6 +54,9 @@ install:
     - "python -m pip install -U wheel"
     - "python -m pip install -U -r requirements.txt"
     - "python -m pip install -U -r tests/requirements.txt"
+    
+    - conda update conda
+    - conda update python
     - "python -m nltk.downloader popular"
 
 # No requirement to build any C libraries
