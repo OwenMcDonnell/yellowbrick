@@ -48,7 +48,8 @@ matrix:
     fast_finish: true
 
 install:
-    - "SET PATH=%MINICONDA3%;%MINICONDA3%\\Scripts;%PATH%"
+    - echo %MINICONDA3%
+    #- "SET PATH=%MINICONDA3%;%MINICONDA3%\\Scripts;%PATH%"
     - "SET PATH=%PYTHON%;%PYTHON%\\Scripts;%PATH%"
     - "python -m pip install -U pip"
     - "python -m pip install -U wheel"
