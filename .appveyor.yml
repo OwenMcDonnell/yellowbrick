@@ -57,7 +57,7 @@ install:
     - "python -m pip install -U -r tests/requirements.txt"
     
     - conda update -y conda
-    - conda update -y sqlite3
+    - conda update -y python
     - "python -m nltk.downloader popular"
 
 # No requirement to build any C libraries
