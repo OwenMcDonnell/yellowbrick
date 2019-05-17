@@ -38,7 +38,7 @@ environment:
         #  PYTHON_ARCH: "64"
 
         - PYTHON: "C:\\Miniconda3-x64"
-          PYTHON_VERSION: "3.6"
+          PYTHON_VERSION: "3.7"
           MINICONDA_VERSION: "4.5"
           PYTHON_ARCH: "64"
 
@@ -56,8 +56,8 @@ install:
     - "python -m pip install -U -r requirements.txt"
     - "python -m pip install -U -r tests/requirements.txt"
     
-    - conda update -y conda
-    - conda update -y python
+    #- conda update -y conda
+    #- conda update -y python
     - "python -m nltk.downloader popular"
 
 # No requirement to build any C libraries
