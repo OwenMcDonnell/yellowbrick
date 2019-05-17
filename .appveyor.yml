@@ -48,8 +48,9 @@ matrix:
     fast_finish: true
 
 install:
-    - echo %MINICONDA3%
-    #- "SET PATH=%MINICONDA3%;%MINICONDA3%\\Scripts;%PATH%"
+    - ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
+    #- echo %MINICONDA3%
+    #- "SET PATH=%MINICONDA3%;%MINICONDA3\\Scripts;%PATH%"
     - "SET PATH=%PYTHON%;%PYTHON%\\Scripts;%PATH%"
     - "python -m pip install -U pip"
     - "python -m pip install -U wheel"
